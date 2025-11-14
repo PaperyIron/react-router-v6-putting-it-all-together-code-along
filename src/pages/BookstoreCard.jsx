@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom"
+import { Link, Outlet } from "react-router-dom"
 
 function BookstoreCard() {
     const bookstore = null
@@ -13,12 +13,13 @@ function BookstoreCard() {
         <ul>
           {bookstore.books.map(book => (
             <li key={book.id}>
-              <a>{book.title}</a>
+              {/* update to Link component */}
+              <Link to={`books/${book.id}`}>{book.title}</Link>
             </li>
           ))}
         </ul>
-        <a>Add New Book</a>
-	 {/* add Outlet component */}
+        {/* update to Link component */}
+        <Link to="books/new">Add New Book</Link>
         <Outlet />
       </div>
     )
