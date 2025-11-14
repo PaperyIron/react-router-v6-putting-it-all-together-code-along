@@ -1,8 +1,7 @@
-function BookstoreCard() {
-    const bookstores = null
-    const id = null
+import { Outlet } from "react-router-dom"
 
-    const bookstore = bookstores.find(b => b.id === id)
+function BookstoreCard() {
+    const bookstore = null
   
     if (!bookstore) return <h2>Bookstore not found.</h2>
   
@@ -19,9 +18,10 @@ function BookstoreCard() {
           ))}
         </ul>
         <a>Add New Book</a>
+	 {/* add Outlet component */}
+        <Outlet />
       </div>
     )
 }
 
 export default BookstoreCard
-  

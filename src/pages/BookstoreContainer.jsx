@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import NavBar from "../components/NavBar"
+// import Outlet
+import { Outlet } from "react-router-dom"
 
 const BookstoreContainer = () => {
   const [bookstores, setBookstores] = useState([])
@@ -30,6 +32,8 @@ const BookstoreContainer = () => {
       <main>
         <h1>🏬 Bookstores Directory</h1>
         <a>Add a new Bookstore</a>
+        {/* add Outlet component */} 
+        <Outlet />
       </main>
     </>
   )
