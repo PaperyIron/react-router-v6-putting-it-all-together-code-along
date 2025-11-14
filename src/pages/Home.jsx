@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import NavBar from "../components/NavBar"
 
 function Home() {
@@ -10,9 +11,9 @@ function Home() {
           Discover your favorite bookstores and explore their collections. Click below to start browsing!
         </p>
         <nav>
-          {/* Students will add Links for navigation */}
-          <a>View Bookstores</a> |{" "}
-          <a>Learn More About This App</a>
+          {/* update to Link components */}
+          <Link to="/bookstores">View Bookstores</Link> |{" "}
+          <Link to="/about">Learn More About This App</Link>
         </nav>
       </main>
     </>
