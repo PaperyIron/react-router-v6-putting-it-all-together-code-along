@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import NavBar from "../components/NavBar"
-// import Link
 import { Outlet, Link } from "react-router-dom"
 
 const BookstoreContainer = () => {
@@ -31,9 +30,9 @@ const BookstoreContainer = () => {
       <NavBar />
       <main>
         <h1>🏬 Bookstores Directory</h1>
-        {/* update a tag to Link component */}
         <Link to="new">Add a new Bookstore</Link>
-        <Outlet />
+	 (/* add context for bookstore, addBookstore, and updateBookstore */}
+        <Outlet context={{bookstores, addBookstore, updateBookstore}}/>
       </main>
     </>
   )
