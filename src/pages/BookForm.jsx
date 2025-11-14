@@ -1,18 +1,17 @@
 import { useState } from "react"
-// import useOutletContext and useParams
-import { useOutletContext, useParams } from "react-router-dom"
+// import useNavigate
+import { useNavigate, useOutletContext, useParams } from "react-router-dom"
 import { v4 as uuidv4 } from 'uuid'
 
 function BookForm() {
   const [title, setTitle] = useState("")
   const [author, setAuthor] = useState("")
   const [pages, setPages] = useState("")
-  // get bookstore id from params
   const {id} = useParams()
-  // destructure bookstores and updateBookstore from outlet context
   const { bookstores, updateBookstore } = useOutletContext()
+  // call useNavigate hook to get navigate function 
+  const navigate = useNavigate()
 
-  // find bookstore using id and all bookstores
   const bookstore = bookstores.find(store => store.id === id)
   
   if (!bookstore) { return <h2>Bookstore not found.</h2>}
@@ -39,8 +38,9 @@ function BookForm() {
         return r.json()
     })
     .then(updatedBookstore => {
-        // use updateBookstore to set state from api response
         updateBookstore(updatedBookstore)
+        // navigate to new book page
+        navigate(`/bookstores${id}/books${newBook.id}`)
     })
     .catch(console.log)
   }

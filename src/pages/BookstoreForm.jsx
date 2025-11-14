@@ -1,12 +1,13 @@
 import { useState } from "react"
-// import useOutletContext
-import { useOutletContext } from "react-router-dom"
+// import useNavigate
+import { useNavigate, useOutletContext } from "react-router-dom"
 
 function BookstoreForm() {
   const [name, setName] = useState("")
   const [location, setLocation] = useState("")
-  {/* destructure addBookstore from useOutletContext */}
   const { addBookstore } = useOutletContext()
+  // call useNavigate hook to get navigate function
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -24,8 +25,9 @@ function BookstoreForm() {
         return r.json()
     })
     .then(store => {
-        {/* use addBookstore to update state */}
         addBookstore(store)
+        // navigate to new bookstore page
+        navigate(`/bookstores${store.id}`)
     })
     .catch(console.log)
   }
